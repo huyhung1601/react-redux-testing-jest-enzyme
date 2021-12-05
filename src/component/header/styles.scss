@@ -4,6 +4,7 @@ header{
     height: 70px;
     padding: 0 auto;
     padding: 0 10px;
+    background-color:black;
     .wrap{
         display: block;
         width: 100%;
@@ -11,11 +12,15 @@ header{
         margin: 0 auto;
         max-width:980px;
         .logo{
+            color: rgb(255, 255, 255);
             display: block;
             width: 250px;
             position: absolute;
             left: 10px;
-            transform: translateY(-50%);
+            .logoIMG{
+                display: block;
+                width: 100%;
+            }
         }
     }
 }
