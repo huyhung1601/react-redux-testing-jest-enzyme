@@ -21,10 +21,9 @@ function App(props) {
     emitEvent: ()=>dispatch(fetchPosts()),
   }
 
-  console.log(posts)
   return (
-    <div className="App">
-      <Header/>
+    <div className="App" data-test='appComponent'>
+      <Header />
         <section className="main">
       <Headline header="Posts" desc="Click the button to render posts" tempArr={tempArr}/>
       <SharedButton {...configButton} />

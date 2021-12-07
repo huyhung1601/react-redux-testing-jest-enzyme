@@ -12,7 +12,6 @@ describe('Posts Reducer', ()=>{
             type: 'GET_POSTS',
             payload: posts
         })
-        console.log(newState)
         expect(newState).toEqual(posts)
     })
 })
