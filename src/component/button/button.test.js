@@ -19,6 +19,7 @@ describe('SharedButton Componet',()=>{
                 emitEvent: mockFunc
             }
             wrapper=shallow(<SharedButton {...props}/>)
+
         })
 
         it('Should render a button', ()=>{

@@ -5,6 +5,7 @@ import SharedButton from "./component/button/SharedButton";
 import ListItem from './component/listItem/ListItem'
 import {connect,useDispatch,useSelector} from 'react-redux'
 import { fetchPosts } from "./redux/reducers/actions";
+import { useState } from "react";
 
 const tempArr = [{
   fName: 'Joe',
@@ -13,20 +14,28 @@ const tempArr = [{
   age: 24,
   onlineStatus: true
 }]
+
 function App(props) {
+  const [hideBtn,setHideBtn] = useState(false)
   const {posts} =  useSelector(state => state)
   const dispatch = useDispatch()
   const configButton = {
     btnText: 'Get Posts',
-    emitEvent: ()=>dispatch(fetchPosts()),
+    emitEvent: ()=>fetch(),
   }
-
+  const fetch = () =>{
+    dispatch(fetchPosts());
+    exampleMethod()
+  }
+  const exampleMethod = () =>{
+    setHideBtn(!hideBtn)
+  }
   return (
     <div className="App" data-test='appComponent'>
       <Header />
         <section className="main">
       <Headline header="Posts" desc="Click the button to render posts" tempArr={tempArr}/>
-      <SharedButton {...configButton} />
+      {!hideBtn && <SharedButton {...configButton} />}
       {posts.length > 0 && <div>{
         posts.map((post,index)=>{
           const {title,body} = post
